@@ -12,7 +12,7 @@ public class Board {
         board = new char[size][size];
         for(int i = 0; i < size; i++) {
             for (int j = 0; j < size; j++) {
-                board[i][j] = '-';
+                board[i][j] = '-'; //initiating the empty board
             }
         }
         auxBoard = new int[size][size];
@@ -22,22 +22,9 @@ public class Board {
         return size;
     }
 
-    public char[][] getBoard() {
-        return board;
-    }
 
-    public void setBoard(char[][] board) {
-        this.board = board;
-    }
-
-    public int[][] getAuxBoard() {
-        return auxBoard;
-    }
-
-    public void setAuxBoard(int[][] auxBoard) {
-        this.auxBoard = auxBoard;
-    }
-
+    // Methods
+    // Shows the Board. Prints it
     public void showBoard(){
         for (int i = 0; i <  size; i++){
             System.out.println();
@@ -49,41 +36,26 @@ public class Board {
         }
     }
 
-    public int getCell(int x, int y) {
+    private int getCell(int x, int y) {
         return auxBoard[x][y];
     }
+
+    // metoda returns true or false
+    public boolean isCellFull(int x, int y){
+        return getCell(x, y) !=0;
+
+    }
+
+
 
     public void move(char mark, int x, int y) {
         board[x][y] = mark;
         auxBoard[x][y] = 1;
     }
 
-    public boolean gameIsFinished(){
-        // Analysing different scenarios
-
-        //when it is perpendicular win
-        //vertical win
-        if((board[0][0] == board[1][0]) && (board[0][0] == board[2][0]) && board[0][0] != '-' )
-        return true;
-        if((board[0][1] == board[1][1]) && (board[0][1] == board[2][1]) && board[0][1] != '-')
-            return true;
-        if((board[0][2] == board[1][2]) && (board[0][2] == board[2][2]) && board[0][2] != '-')
-            return true;
-        //horizontal win
-        if (( board[0][0] == board[0][1]) && (board[0][0] == board[0][2]) && board[0][0] != '-')
-            return true;
-        if (( board[1][0] == board[1][1]) && (board[1][0] == board[1][2]) && board[1][0] != '-')
-            return true;
-        if (( board[2][0] == board[2][1]) && (board[2][0] == board[2][2]) && board[2][0] != '-')
-            return true;
-        //diagonal win
-        if (board[0][0] == board[1][1] && board[0][0] == board[2][2] && board[0][0] != '-')
-            return true;
-
-        if (board[0][2] == board[1][1] && board[0][2] == board[2][0] && board[0][2] != '-')
-            return true;
-
-        return false;
-
+    public char getMark( int x, int y){
+        return board[x][y];
     }
+
+
 }

@@ -2,13 +2,12 @@ package com.faf.tiktaktoe;
 
 import java.util.Scanner;
 
-/**
- * Created by Amy on 3/10/2017.
- */
+
 public class GameManager {
 
     private Scanner scanner = new Scanner(System.in);
     private Board board;
+    private Game game;
     private Player playerOne;
     private Player playerTwo;
     private char currentMark = 'X';
@@ -19,6 +18,7 @@ public class GameManager {
     public GameManager(int size) {
         initGame(size);
     }
+
 
     private void initPlayers() {
         playerOne = new Player();
@@ -34,8 +34,11 @@ public class GameManager {
 
     private void initGame(int size) {
         board = new Board(size);
+        game = new Game();
         initPlayers();
-        System.out.println("Game is initialized, press enter to start it.");
+        System.out.println("This is a primitive TIC Tac Toe!");
+        System.out.println("RULES of the Game: The first player " + playerOne.getName() + " starts the game, by introducing the coordonates of X");
+        System.out.println("Then teh second user follows. Now press enter to start the game");
         scanner.nextLine();
     }
 
@@ -61,10 +64,10 @@ public class GameManager {
 
             board.showBoard();
             System.out.println();
-        } while (!board.gameIsFinished());
+        } while (!game.gameIsFinished(board));
 
         if(currentMark == 'O') {
-            System.out.println("Player " + playerOne.getName() + " won !");
+            System.out.println("Player " + playerTwo.getName() + " won !");
         } else {
             System.out.println("Player " + playerOne.getName() + " won !");
         }
@@ -72,10 +75,10 @@ public class GameManager {
     }
 
     private boolean areCoordinatesValid(int x, int y) {
-        if(x > 3 || x < 0 || y > 3 || y < 0) {
+        if(x > board.getSize() || x < 0 || y > board.getSize() || y < 0) {
             return false;
         }
-        if(board.getCell(x, y) != 0) {
+        if(board.isCellFull(x, y) ) { //
             return false;
         }
         return true;
