@@ -1,7 +1,9 @@
 package com.faf.tiktaktoe;
 
 /**
- * descriu comportament la metoda
+ * Initializaze the game, therefore the game starts.
+ * Also here, I am having a method called gameISFinished - which will check my board,
+ * and the game status. It analyses all the cases when the game is finished and we get a winner.
  */
 public class Game {
 

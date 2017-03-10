@@ -1,6 +1,8 @@
 package com.faf.tiktaktoe;
 
-
+/**
+ * Describes the characteristics of a player. Here I basically have the attributes for my  Player.
+ */
 class Player {
     private String name;
     private char mark;

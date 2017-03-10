@@ -1,7 +1,11 @@
 package com.faf.tiktaktoe;
 
 import java.util.Scanner;
-
+/**
+ * Manages the basic methods for my game in order it to start.
+ * . Here is where I have the such methods as:  initPlayers(), initGame(), startGame(),
+ * and  areCoordinatesValid().
+ */
 
 public class GameManager {
 

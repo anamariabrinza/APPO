@@ -1,5 +1,10 @@
 package com.faf.tiktaktoe;
 
+/**
+ * initialize the board of my game. The methods used in here are: showBoard(), getCell(),
+ * move(), gameIsFinished()
+ */
+
 public class Board {
 
     private int size;
